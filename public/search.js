@@ -18,19 +18,19 @@ function getDataFromItunes() {
         json.results.forEach( song => {
             finalHTML += 
             `
-    <div className="col s6 m4 l4">
-        <div className="card">
-        <div className="card-image waves-effect waves-block waves-light">
-        <img className="activator" src="${song.artworkUrl60}">
+    <div class="col s6 m4 l4">
+        <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="${song.artworkUrl60}">
         </div>
-        <div className="card-content">
-            <span className="card-title activator grey-text text-darken-4">${song.trackCensoredName}</span>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">${song.trackCensoredName}</span>
             <p>${song.artistName}</p>
         </div>
-        <div className="card-reveal">
-            <span className="card-title grey-text text-darken-4">Information<i className="material-icons right">close</i></span>
-            <p><b>Price: </b>${song.collectionPrice}$</p>
-            <a className="waves-effect waves-light btn-small">Add to playlist</a>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Information<i class="material-icons right">close</i></span>
+            <p>${song.collectionPrice}$</p>
+            <a class="waves-effect waves-light btn-small">Add to playlist</a>
     </div>
   </div>
   </div>
