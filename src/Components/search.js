@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SongSearcher from './../Views/searchView'
+import SongSearcher from '../Views/searchView'
  
 function Search (){
  
