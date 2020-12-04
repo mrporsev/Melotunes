@@ -2,7 +2,6 @@ import React from 'react'
 import './App.css';
 import Search from './Components/search'
 import Playlisten from "./Playlisten"
-import DefaultRoute from './defaultRoute'
 import Show from './show'
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
     </div>
   </nav>
       <div>
-       <Show hash="#search"> <Search /> </Show>
+       <Show hash="#search"><Search /> </Show>
       </div>
        <div>
        <Show hash="#playlist"><Playlisten /> </Show>

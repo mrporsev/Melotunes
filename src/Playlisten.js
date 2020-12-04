@@ -25,7 +25,7 @@ import Playlist from "./Playlistview"
    removeBtn = (counterId)  => {
      
 
-     let a = this.state.counters.filter(element => element.id != counterId)
+     let a = this.state.counters.filter(element => element.id !== counterId)
     
      this.setState({counters : a})
 
@@ -38,7 +38,7 @@ import Playlist from "./Playlistview"
 
     let tom = ""
     let knapp = ""
-    if(this.state.counters.length == 0){
+    if(this.state.counters.length === 0){
       tom = <div className = "water"></div>
       knapp = ""
     }

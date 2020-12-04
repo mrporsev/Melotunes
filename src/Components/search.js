@@ -12,7 +12,7 @@ function Search (){
  
     React.useEffect(()=>fetch(url).then(response => response.json()).then(setResult),[song]);
  
- 
+    console.log(result)
    
    return <SongSearcher searchSong={setSong} theSongs={result}/>
 }
