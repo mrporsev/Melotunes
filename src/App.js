@@ -3,10 +3,12 @@ import './App.css';
 import Search from './Components/search'
 import Playlisten from "./Playlisten"
 import Show from './show'
+import atunesModel from './atunesModel'
 
 function App() {
  const searchNav=()=>window.location.hash="search";
  const playlistNav=()=>window.location.hash="playlist";
+const model = new atunesModel()
 
  return (
    <div className="App">
@@ -21,7 +23,7 @@ function App() {
     </div>
   </nav>
       <div>
-       <Show hash="#search"><Search /> </Show>
+       <Show hash="#search"><Search atunesModel= {model}/> </Show>
       </div>
        <div>
        <Show hash="#playlist"><Playlisten /> </Show>
