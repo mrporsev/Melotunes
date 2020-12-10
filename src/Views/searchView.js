@@ -13,7 +13,7 @@ const SongSearcher = ({searchSong, theSongs, addSong})=>{
      
       
        <input className = "input" placeholder = "Song or Artist" onChange={event=> query = event.target.value}></input>
-       <button className = "waves-effect waves-light btn-small" onClick = {()=> searchSong(query)}> Search</button>
+       <button className = "deep-purple lighten-1 waves-effect waves-purple btn-small" onClick = {()=> searchSong(query)}> Search</button>
            
         <br></br>
        
@@ -24,17 +24,20 @@ const SongSearcher = ({searchSong, theSongs, addSong})=>{
        <img class="activator" src={song.artworkUrl100} /> 
        </div>
        <div class="card-content">
-           <span class="card-title activator grey-text text-darken-4">{song.trackCensoredName}</span>
+           <span class="card-title activator black-text text-darken-4">{song.trackCensoredName}</span>
            <p>{song.artistName}</p>
        </div>
-       <div class="card-reveal">
-           <span class="card-title grey-text text-darken-4">Information<i class="material-icons right">close</i></span>
-           <p><b>Price:</b>{song.trackPrice}$</p>
-           <p><b>Genre:</b>{song.primaryGenreName}</p>
-           <p><b>Country:</b>{song.country}</p>
-           <p><b>Release date:</b>{song.releaseDate}</p>
-       <p><b>Details: </b> <span>{song.trackCensoredName} is a song by {song.artistName} from the album {song.collectionName}. It was released {song.releaseDate}.</span></p>
+       <div class="card-reveal black">
+           <span class="card-title white-text text-darken-4"><i class="material-icons right">X</i></span>
+           <p class="white-text text-darken-4"><b>Price:</b>{song.trackPrice}$</p>
+           <p class="white-text text-darken-4"><b>Genre:</b>{song.primaryGenreName}</p>
+           <p class="white-text text-darken-4"><b>Country:</b>{song.country}</p>
+           <p class="white-text text-darken-4"><b>Released:</b>{song.releaseDate}</p>
+           <p class="white-text text-darken-4"><b>Collection:</b>{song.collectionName}</p>
+           <p class="white-text text-darken-4"><b>Length:</b> {((song.trackTimeMillis/1000)/60).toFixed(2)} min</p>
        <button class="waves-effect waves-light btn-small" style={{fontSize: "10px"}} onClick={()=>addSong(song)}>Add to playlist</button>
+       <iframe src={song.previewUrl} 
+width="120px" height="120" border="0" frameborder="0"  scrolling="no"></iframe>
    </div>
  </div>
  

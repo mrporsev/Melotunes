@@ -1,16 +1,19 @@
 
 import React from "react"
 import "./App.css"
+import atunesModel from "../src/atunesModel"
 
  class Playlist extends React.Component {
 
+  
     state = {
         songs : 0,
         idNamn : this.props.idNamn,
-        allSongs : [],
+        allSongs : this.props.allSongs
      
     }
-
+  
+  
   btnHandler = () => console.log("CLICKED")
 
   btnHandlerSong = () => {
@@ -30,9 +33,7 @@ import "./App.css"
     this.setState({allSongs : t})
   }
 
-  test = (id) => {
-        console.log(id)
-  }
+
 
   render(){
     
@@ -50,7 +51,7 @@ import "./App.css"
       <div className  = "divider"/>
 
       <input type="text" id={this.state.idNamn} placeholder="Enter song name"/>
-            {v}
+            {v} console.log({atunesModel.convertedTime})
             <input type = "button" value = "DELETE PLAYLIST" id = {this.state.songs} className = "myButton2" onClick = {() => this.props.onDelete(this.props.id)}/>
             <br></br>
             <h4>total songs: {this.state.allSongs.length}</h4>

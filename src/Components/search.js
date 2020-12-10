@@ -10,13 +10,14 @@ function Search ({atunesModel}){
  
    //  const url = 'https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=jack+johnson';
  
-    const url = 'https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=' + song;
+    const url = 'https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=' + song + "&limit=16";
  
     React.useEffect(()=>fetch(url).then(response => response.json()).then(setResult),[song]);
     React.useEffect(()=> console.log(atunesModel.playlist),[atunesModel.playlist])
 
     console.log(result)
-   
+
+
    return <SongSearcher searchSong={setSong} theSongs={result} addSong={(song)=>atunesModel.addSongToPlaylist(song)} />
 }
  

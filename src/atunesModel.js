@@ -1,24 +1,38 @@
-import React from 'react'
 
 class atunesModel {
 
-    constructor (playlist = [], songs = []){
+    constructor (playlist = [], songs = [], convertedTime = 0, totalPlaytime = 0){
         
         this.playlist = playlist;
         this.songs = songs;
+        this.totalPlaytime = totalPlaytime;
+        this.convertedTime=convertedTime;
     }
 
     addSongToPlaylist (song){
-        console.log(atunesModel.song)
+        console.log(this.song)
         this.playlist=[...this.playlist, song]
-        console.log(atunesModel.addSongToPlaylist)
+        console.log(this.playlist)
+        this.calculateTotalPlaytime(song)
+        console.log(this.totalPlaytime)
         
     }
 
-    // removeFromPlaylist (song){
+    calculateTotalPlaytime (song){
 
-    //     [...this.playlist].fil
-    // }sdfsdfsf
+        this.totalPlaytime += song.trackTimeMillis;
+
+        this.convertedTime = this.timeConverter(this.totalPlaytime)
+
+        console.log(this.convertedTime)
+
+     }
+
+     timeConverter(time){
+
+      return ((time/1000)/60).toFixed(2)
+
+     }
 
 
 
