@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import PlaylistView from './Views/Playlistview';
-import atunesModel from './atunesModel'
  
 function Playlist ({atunesModel}){
 
-   return <div> <table class="highlight">
+   return <PlaylistView atunesModel = {atunesModel} />
+}
+ 
+export default Playlist
+
+/*
+<div> <table class="highlight">
    <thead>
      <tr>
          <th>Artist name</th>
@@ -30,7 +35,4 @@ function Playlist ({atunesModel}){
        <td>$7.00</td>
      </tr>
    </tbody>
- </table></div>
-}
- 
-export default Playlist
+ </table></div> */

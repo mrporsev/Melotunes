@@ -1,22 +1,16 @@
-import { auth } from '../services/firebase'
-
-export function signup (email, password) {
-    return auth().createUserWithEmailAndPassword(email, password);
-}
-
-export function signin (email, password) {
-    return auth().signInWithEmailAndPassword(email, password);
-}
-
+import {signup, signin} from '../helpers/auth'
 
 function Homepage (){
 var email = ""
 var password = ""
-    return <div>
-               <input className = "input" placeholder = "Email" onChange={event=> email = event.target.value}></input>
-               <input className = "input" placeholder = "Password" onChange={event=> password = event.target.value}></input>
-               <button className = "deep-purple lighten-1 waves-effect waves-purple btn-small" onClick = {()=>  {signup(email, password)}}> Login</button>
-    </div>
+    return <center><div className = "loginformbox">
+                <h2>Welcome</h2>
+                <input className = "input" placeholder = "Email" onChange={event=> email = event.target.value}></input>
+                <input className = "input" type="password" placeholder = "Password" onChange={event=> password = event.target.value}></input>
+                <button className = "deep-purple lighten-1 waves-effect waves-purple btn-small" onClick = {()=>  {signin(email, password)}}> Login</button>
+                <p> or </p>
+                <button className = "deep-yellow lighten-1 waves-effect waves-yellow btn-small" onClick = {()=>  {signup(email, password)}}> Register</button>
+            </div></center>
 }
 
 export default Homepage

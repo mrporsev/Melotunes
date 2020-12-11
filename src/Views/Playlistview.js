@@ -6,7 +6,7 @@ const PlaylistView = ({atunesModel})=>{
 
   return (<div>
      
-     
+        {atunesModel.playlist[0].artistName}
       <br></br>
 
   </div>)}

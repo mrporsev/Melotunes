@@ -36,8 +36,9 @@ const SongSearcher = ({searchSong, theSongs, addSong})=>{
            <p class="white-text text-darken-4"><b>Collection:</b>{song.collectionName}</p>
            <p class="white-text text-darken-4"><b>Length:</b> {((song.trackTimeMillis/1000)/60).toFixed(2)} min</p>
        <button class="waves-effect waves-light btn-small" style={{fontSize: "10px"}} onClick={()=>addSong(song)}>Add to playlist</button>
-       <iframe src={song.previewUrl} 
-width="120px" height="120" border="0" frameborder="0"  scrolling="no"></iframe>
+       <embed src={song.previewUrl}
+       align="baseline" border="0" width="145" 
+       height="60" autostart="false" loop="true"></embed>
    </div>
  </div>
  
