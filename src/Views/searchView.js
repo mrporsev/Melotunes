@@ -1,5 +1,5 @@
-
-const SongSearcher = ({searchSong, theSongs, addSong})=>{
+import React, { useState } from 'react'
+const SongSearcher = ({searchSong, theSongs, addSong, allSongs, currentSong, getSong})=>{
         
     let query = " ";
     let x = ""
@@ -7,16 +7,38 @@ const SongSearcher = ({searchSong, theSongs, addSong})=>{
         x = alert("Result not found, please try again.") 
         theSongs.resultCount = 1 
     }
+  
+
+   let  previewUrl = getSong()
+
+  
+
+    let t = allSongs()
+  
+
+    function updateWebsite(){
+        updatera1(updatera-1)
+      }
     
+      function addAsong(song){
+        addSong(song)
+        updateWebsite()
+      }
+    
+      const [updatera,updatera1] = useState(4)
+  
      
     return (<div>
-     
+ 
+     {console.log(previewUrl)}
       
        <input className = "input" placeholder = "Song or Artist" onChange={event=> query = event.target.value}></input>
        <button className = "deep-purple lighten-1 waves-effect waves-purple btn-small" onClick = {()=> searchSong(query)}> Search</button>
            
         <br></br>
-       
+
+<span class="new badge" data-badge-caption="new songs">{t}</span>
+
        {theSongs.results.map(song =>
        <div class="pics">
        <div class="card medium">
@@ -35,13 +57,21 @@ const SongSearcher = ({searchSong, theSongs, addSong})=>{
            <p class="white-text text-darken-4"><b>Released:</b>{song.releaseDate}</p>
            <p class="white-text text-darken-4"><b>Collection:</b>{song.collectionName}</p>
            <p class="white-text text-darken-4"><b>Length:</b> {((song.trackTimeMillis/1000)/60).toFixed(2)} min</p>
-       <button class="waves-effect waves-light btn-small" style={{fontSize: "10px"}} onClick={()=>addSong(song)}>Add to playlist</button>
+       <button class="waves-effect waves-light btn-small" style={{fontSize: "10px"}} onClick={()=>addAsong(song)}>Add to playlist</button>
+       
+       
        <embed src={song.previewUrl}
        align="baseline" border="0" width="145" 
        height="60" autostart="false" loop="true"></embed>
+    
+
    </div>
+            
+             
  </div>
- 
+
+
+           
   </div>
        )
        }  

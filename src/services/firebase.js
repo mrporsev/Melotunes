@@ -12,7 +12,8 @@ import firebase from 'firebase';
     measurementId: "G-J7YVY512ZQ"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  const fire = firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   export const auth = firebase.auth;
   export const db = firebase.database();
+  export default fire;
