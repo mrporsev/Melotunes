@@ -1,4 +1,4 @@
-
+/*
 function defaultRoute(){
     if(! ["#search", "#summary", "#details"].find(knownRoute=>
              knownRoute = window.location.hash))
@@ -6,3 +6,5 @@ function defaultRoute(){
   }
   
   export default defaultRoute
+
+  */

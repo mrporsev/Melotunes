@@ -1,38 +1,29 @@
-*{
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  
-  }
-  
- 
-  
- body{
-  
+body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
-  
- }
-  
- a{
-  
+}
+
+a {
   color: black;
   text-decoration: none;
-  
- }
-  
- .pics {
-  align-content: right;
-    display: inline-block;
-    vertical-align: top;
-    font-size: small;
-    width: 170px;
-    
- }
+}
 
-.loginformbox{
-  width:520px;
+.pics {
+  align-content: right;
+  display: inline-block;
+  vertical-align: top;
+  font-size: small;
+  width: 170px;
+}
+
+.loginformbox {
+  width: 520px;
   padding: 10px;
   border: 5px solid rgb(226, 226, 226);
   margin: 100px;
@@ -46,201 +37,204 @@
 }
 
 .disabled {
-  pointer-events:none;
-  opacity:0.6;         
+  pointer-events: none;
+  opacity: 0.6;
 }
-
 
 /*Playlist nibbes css*/
 pics {
   align-content: right;
-    display: inline-block;
-    vertical-align: top;
-    font-size: small;
-    width: 170px;
-    
-  }
-  
-  .boxsquare{
-  border-radius:30px ;
+  display: inline-block;
+  vertical-align: top;
+  font-size: small;
+  width: 170px;
+}
+
+.boxsquare {
+  border-radius: 30px;
   padding: 30px;
   margin: 20px;
-  background:linear-gradient(to bottom, #308ec5 5%, #ffaff2 100%);
-  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 13px 9px rgba(0,0,0,0.72); 
-  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 13px 9px rgba(0,0,0,0.72);
-  
-  
-  }
-  
-  .myButton {
+  background: linear-gradient(to bottom, #308ec5 5%, #ffaff2 100%);
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 13px 9px rgba(0, 0, 0, 0.72);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 13px 9px rgba(0, 0, 0, 0.72);
+}
+
+.myButton {
   box-shadow: 3px 4px 0px 0px #899599;
-  background:linear-gradient(to bottom, #4ab3e4 5%, #bab1ba 100%);
-  background-color:#448cdd;
-  border-radius:15px;
-  border:1px solid #d6bcd6;
-  display:inline-block;
-  cursor:pointer;
-  color:#061725;
-  font-family:Arial;
-  font-size:10px;
-  padding:5px 20px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #cacdeb;
-  }
-  .myButton:hover {
-  
-  font-size:11px;
-  }
-  .myButton:active {
-  position:relative;
-  top:1px;
-  }
-  
-  .divider{
-  width:10px;
-  height:auto;
-  display:inline-block;
-  }
-  
-  .spanSize{
+  background: linear-gradient(to bottom, #4ab3e4 5%, #bab1ba 100%);
+  background-color: #448cdd;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
+  cursor: pointer;
+  color: #061725;
+  font-family: Arial;
+  font-size: 10px;
+  padding: 5px 20px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cacdeb;
+}
+.myButton:hover {
+  font-size: 11px;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.divider {
+  width: 10px;
+  height: auto;
+  display: inline-block;
+}
+
+.spanSize {
   font-size: 15;
-  }
-  
-  
-  .boxsquaresmall{
+}
+
+.boxsquaresmall {
   width: 500px;
   border: 5px solid rgb(49, 52, 54);
   padding: 5px;
   margin: 10px;
-  
-  }
-  
-  
-  .myButton2 {
+}
+
+.myButton2 {
   box-shadow: 3px 4px 0px 0px #8a2a21;
-  background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-  background-color:#c62d1f;
-  border-radius:30px;
-  border:1px solid #d02718;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-family:Arial;
-  font-size:20px;
-  padding:5px 12px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #810e05;
-  }
-  .myButton2:hover {
-  background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-  background-color:#f24437;
-  }
-  .myButton2:active {
-  position:relative;
-  top:1px;
-  
-  }
-  
-  .buttonAdd {
+  background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  background-color: #c62d1f;
+  border-radius: 30px;
+  border: 1px solid #d02718;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 12px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #810e05;
+}
+.myButton2:hover {
+  background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+  background-color: #f24437;
+}
+.myButton2:active {
+  position: relative;
+  top: 1px;
+}
+
+.buttonAdd {
   position: absolute;
   display: inline-block;
   margin: 0 auto;
-  
+
   -webkit-border-radius: 10px;
-  
-  -webkit-box-shadow: 
-      0px 3px rgba(128,128,128,1), /* gradient effects */
-      0px 4px rgba(118,118,118,1),
-      0px 5px rgb(108, 108, 108),
-      0px 6px rgba(98,98,98,1),
-      0px 7px rgba(88,88,88,1),
-      0px 8px rgba(78,78,78,1),
-      0px 14px 6px -1px rgba(128,128,128,1); /* shadow */
-  
-  
-  } 
-  
-  .buttonAdd span {
+
+  -webkit-box-shadow: 0px 3px rgba(128, 128, 128, 1),
+    /* gradient effects */ 0px 4px rgba(118, 118, 118, 1),
+    0px 5px rgb(108, 108, 108), 0px 6px rgba(98, 98, 98, 1),
+    0px 7px rgba(88, 88, 88, 1), 0px 8px rgba(78, 78, 78, 1),
+    0px 14px 6px -1px rgba(128, 128, 128, 1); /* shadow */
+}
+
+.buttonAdd span {
   background-color: #e8e8e8;
-  
-  
+
   display: inline-block;
   padding: 5px;
-  
-  color: #3A474D;
+
+  color: #3a474d;
   text-transform: uppercase;
-  font-family: 'TradeGothicLTStd-BdCn20','PT Sans Narrow';
+  font-family: "TradeGothicLTStd-BdCn20", "PT Sans Narrow";
   font-weight: 700;
   font-size: 20px;
-  
-  text-shadow: 0px 1px #fff, 0px -1px #262F33;
-  }
-  
-      .buttonAdd span:hover {
-          color: #AEBF3B;
-          text-shadow: 0px -1px #97A63A;
-          cursor: pointer;
-      }
-  
-  .backgroundfärg {
-  background-image: linear-gradient(to right top, #d16ba5, #c672b7, #b77ac6, #a483d3, #8d8bdd, #709bec, #4baaf5, #00b8f8, #00ceee, #00dec3, #57e782, #c4e63f);
-  }
-  
-  .water{
-  width:400px;
+
+  text-shadow: 0px 1px #fff, 0px -1px #262f33;
+}
+
+.buttonAdd span:hover {
+  color: #aebf3b;
+  text-shadow: 0px -1px #97a63a;
+  cursor: pointer;
+}
+
+.backgroundfärg {
+  background-image: linear-gradient(
+    to right top,
+    #d16ba5,
+    #c672b7,
+    #b77ac6,
+    #a483d3,
+    #8d8bdd,
+    #709bec,
+    #4baaf5,
+    #00b8f8,
+    #00ceee,
+    #00dec3,
+    #57e782,
+    #c4e63f
+  );
+}
+
+.water {
+  width: 400px;
   height: 400px;
-  background-image: linear-gradient(to right top, #370fe9, #2f79e9, #488eeb, #4aa9e9, #3b7cdf, #4780d6, #6797df, #85aae2, #a3bde4);
+  background-image: linear-gradient(
+    to right top,
+    #370fe9,
+    #2f79e9,
+    #488eeb,
+    #4aa9e9,
+    #3b7cdf,
+    #4780d6,
+    #6797df,
+    #85aae2,
+    #a3bde4
+  );
   border-radius: 100%;
   position: relative;
-  box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.5), 0 4px 10px 0 rgba(0,0,0,.5);
+  box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.5),
+    0 4px 10px 0 rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  }
-  .water:before, .water:after{
-  content:'';
+}
+.water:before,
+.water:after {
+  content: "";
   position: absolute;
-  width:400px;
+  width: 400px;
   height: 400px;
-  top:-150px;
+  top: -150px;
   background-color: rgb(0, 0, 0);
-  }
-  .water:before{
+}
+.water:before {
   border-radius: 55%;
-  background:rgba(36, 6, 6, 0.7);
-  animation:wave 5s linear infinite;
-  }
-  .water:after{
+  background: rgba(36, 6, 6, 0.7);
+  animation: wave 5s linear infinite;
+}
+.water:after {
   border-radius: 35%;
-  background:rgba(186, 225, 245, 0.438);
-  animation:wave 5s linear infinite;
+  background: rgba(186, 225, 245, 0.438);
+  animation: wave 5s linear infinite;
+}
+@keyframes wave {
+  0% {
+    transform: rotate(0);
   }
-  @keyframes wave{
-  0%{
-      transform: rotate(0);
+  100% {
+    transform: rotate(360deg);
   }
-  100%{
-      transform: rotate(360deg);
-  }
-  }
-  
-      .text3d {
-  
-      font-family: verdana;
-      font-size: 20px;
-        
-      color: #f5f5f5;
-      text-shadow: 1px 1px 1px #919191,
-              1px 2px 1px #919191,
-              1px 3px 1px #919191,
-              1px 4px 1px #919191,
-              1px 5px 1px #919191,
-              1px 6px 1px #919191,
-              1px 7px 1px #919191,
-              1px 8px 1px #919191,
-              1px 9px 1px #919191,
-              1px 10px 1px #919191,
-          1px 18px 6px rgba(16,16,16,0.4),
-          1px 22px 10px rgba(16,16,16,0.2),
-          1px 25px 35px rgba(16,16,16,0.2),
-          1px 30px 60px rgba(16,16,16,0.4);
-      }
-    
+}
+
+.text3d {
+  font-family: verdana;
+  font-size: 20px;
+
+  color: #f5f5f5;
+  text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+    1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191,
+    1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191,
+    1px 10px 1px #919191, 1px 18px 6px rgba(16, 16, 16, 0.4),
+    1px 22px 10px rgba(16, 16, 16, 0.2), 1px 25px 35px rgba(16, 16, 16, 0.2),
+    1px 30px 60px rgba(16, 16, 16, 0.4);
+}
