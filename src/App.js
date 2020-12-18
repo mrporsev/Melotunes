@@ -4,8 +4,11 @@ import Search from "./Components/search";
 import Playlisten from "./Playlisten";
 import Show from "./show";
 import atunesModel from "./atunesModel";
-import Homepage from "./Components/homepage";
+import Homepage from "./Views/homepage";
 import fire from "./services/firebase";
+import AboutUs from "./Views/homepageLogin";
+import Reviews from "./Views/reviews"
+import AllMyPlayLists from "./Views/AllMyPlaylists"
 
 function App() {
   const model = new atunesModel();
@@ -114,9 +117,9 @@ const authListener = () => {
         <div>
           {alert("Welcome you are now logged in!")}
           <nav>
-            <div className="nav-wrapper grey">
+            <div className="nav-wrapper grey darken-3">
               <center>
-                <a href="#" className="brand-logo">
+                <a href="#homepage" className="brand-logo">
                   MeloTunes
                 </a>
               </center>
@@ -132,9 +135,20 @@ const authListener = () => {
                 <li>
                   <a href="#playlist">Playlist</a>
                 </li>
+                <li>
+                  <a href="#myPlaylists">My Playlists</a>
+                </li>
+                <li>
+                <a href="#reviews">Reviews</a>
+                </li>
               </ul>
             </div>
           </nav>
+          <div> 
+          <Show hash="#homepage">
+            <AboutUs />
+          </Show>
+          </div>
           <div>
             <Show hash="#search">
               <Search atunesModel={model} />{" "}
@@ -145,13 +159,49 @@ const authListener = () => {
               <Playlisten atunesModel={model} />{" "}
             </Show>
           </div>
+          <div>
+            <Show hash="#myPlaylists">
+              <AllMyPlayLists atunesModel={model} />{" "}
+            </Show>
+          </div>
+          <div>
+          <Show hash="#reviews">
+              <Reviews />
+            </Show>
+          </div>
+<footer className="page-footer" className="page-footer grey">
+          <div className="container">
+            <div className="row">
+              <div className="col l6 s12">
+                <h5 className="white-text">MeloTunes</h5>
+                <br></br>
+                <p className="grey-text text-lighten-4"> Providing Tunes 4 u </p>
+                
+             <div></div>
+              </div>
+              <div className="col l4 offset-l2 s12">
+                <ul>
+                  <li><a className="grey-text text-lighten-3" href="#search">Search</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#playlist">Customize playlist</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#homepage">Learn more about us</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#reviews">Customer reviews</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="footer-copyright">
+            <div className="container">
+            © 2020 Copyright MeloTunes
+            </div>
+          </div>
+        </footer>
         </div>
       ) : (
         <div>
           <nav>
             <div className="nav-wrapper grey">
               <center>
-                <a href="#" className="brand-logo">
+                <a href="#homepage" className="brand-logo">
                   MeloTunes
                 </a>
               </center>
@@ -164,6 +214,9 @@ const authListener = () => {
                 </li>
                 <li className="disabled">
                   <a href="#playlist">Playlist</a>
+                </li>
+                <li>
+                <a href="#reviews">Reviews</a>
                 </li>
               </ul>
             </div>
@@ -182,6 +235,11 @@ const authListener = () => {
               passwordError={passwordError}
             />{" "}
           </Show>
+          <div>
+          <Show hash="#reviews">
+              <Reviews />
+            </Show>
+          </div>
         </div>
       )}
     </div>

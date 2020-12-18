@@ -33,12 +33,6 @@ function millisToMinutesAndSeconds(millis) {
   return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
 }
 
-function testar() {
-  var inputVal = document.getElementById("testar").value;
-
-  return inputVal;
-}
-
 function getUserData() {
   let user = fire.auth().currentUser;
   return fire
@@ -50,12 +44,26 @@ function getUserData() {
     });
 }
 
+function getUserBankAccount() {
+  let user = fire.auth().currentUser;
+  return fire
+    .database()
+    .ref("/users/" + user.uid)
+    .once("value")
+    .then((snapshot) => {
+      return (snapshot.val() && snapshot.val().bankAccount) || [];
+    });
+}
+
 function Playlisten({ atunesModel }) {
   const [playlist, setPlaylist] = React.useState([]);
+  const [bankAccount, setBankaccount] = React.useState([]);
   React.useEffect(async () => {
     async function fetchData() {
       atunesModel.playlist = await getUserData();
+      atunesModel.bankAccount = await getUserBankAccount();
       setPlaylist(atunesModel.playlist);
+      setBankaccount(atunesModel.bankAccount);
     }
     fetchData();
   }, []);
@@ -70,24 +78,22 @@ function Playlisten({ atunesModel }) {
   }
 
   function pay() {
-    atunesModel.totalcostsPlaylist(testar());
+    atunesModel.totalcostsPlaylist(atunesModel.bankAccount);
 
-    document.getElementById("testar").value = atunesModel.bankAccount;
-
-    //  atunesModel.buyPlaylist(atunesModel.playlist)
     atunesModel.disablefnc(sum);
-    // nyLista()
+
+    atunesModel.buyPlaylist(atunesModel.playlist);
     updateWebsite();
   }
 
+  //FIXA (tänk på parse innan du checkar om det är en number då prompt tar in strings)
   function addMoreMoney() {
     let val = prompt("enter värde");
     let vali = parseFloat(val);
 
-    let inputVal = document.getElementById("testar").value;
+    let inputVal = atunesModel.bankAccount;
     let inputVali = parseFloat(inputVal);
     let summan = inputVali + vali;
-    document.getElementById("testar").value = summan.toFixed(2);
 
     atunesModel.bankMoney(summan.toFixed(2), sum);
 
@@ -98,6 +104,12 @@ function Playlisten({ atunesModel }) {
 
   let prisen;
   let rest;
+
+  if (atunesModel.bankAccount === null) {
+    console.log("TESTRARR");
+    atunesModel.bankAccount = 10;
+    updateWebsite();
+  }
 
   if (atunesModel.disabled === true) {
     rest = (
@@ -164,35 +176,31 @@ function myPlaylists(){
 
 } */
 
-  let t2;
-
-  for (let i = 0; i < atunesModel.manyPlaylists.length; i++) {
-    for (let j = 0; j < atunesModel.manyPlaylists[i].length; j++) {
-      t2 = (
-        <td>
-          <h6>{atunesModel.manyPlaylists[i][j].artistName}</h6>
-        </td>
-      );
-    }
-  }
-
   let t = atunesModel.playlist.map((element) => (
-    <tbody>
+    <tbody className="highlight black">
       <tr>
         <td>
-          <h6>{element.artistName}</h6>
+          <h6 className="fontColorPlaylist">{element.artistName}</h6>
         </td>
         <td>
-          <h6>{element.trackName}</h6>
+          <h6 className="fontColorPlaylist">{element.trackName}</h6>
         </td>
         <td>
-          <h6>{element.trackPrice}$</h6>{" "}
+          <h6 className="fontColorPlaylist">{element.trackPrice}$</h6>{" "}
         </td>
         <td>
-          <h6>{millisToMinutesAndSeconds(element.trackTimeMillis)}</h6>
+          <h6 className="fontColorPlaylist">
+            {millisToMinutesAndSeconds(element.trackTimeMillis)}
+          </h6>
         </td>
         <td>
-          <embed src={element.previewUrl} width="145" height="100"></embed>
+          <embed
+            src={element.previewUrl}
+            width="145"
+            height="100"
+            autoplay="false"
+            autostart="false"
+          ></embed>
         </td>
         <td>
           <img
@@ -235,35 +243,40 @@ function myPlaylists(){
 
     tabell = "";
   } else {
+    cirkel = "";
     {
     }
-    cirkel = <div className="water"></div>;
+    // cirkel = <div className="water"></div>;
     tabell = (
-      <div className="boxsquare">
+      <div className="card-panel black">
         <table className="highlight">
           <thead>
             <tr>
-              <th>Artist name</th>
-              <th>Song</th>
-              <th>Price</th>
-              <th>Length</th>
-              <th>Click to listen!</th>
+              <th className="fontColorPlaylist">Artist name</th>
+              <th className="fontColorPlaylist">Song</th>
+              <th className="fontColorPlaylist">Price</th>
+              <th className="fontColorPlaylist">Length</th>
+              <th className="fontColorPlaylist">Click to listen!</th>
             </tr>
           </thead>
           {t}
         </table>
-        <div className="boxsquaresmall">
-          <h6 className="text3d">
+        <div className="card-panel black">
+          <h6 className="fontColorPlaylist">
             Total cost of your playlist: {sum.toFixed(2)} ${" "}
           </h6>
-          <h6 className="text3d">Total length of your playlist: {time} </h6>{" "}
+          <h6 className="fontColorPlaylist">
+            Total length of your playlist: {time}{" "}
+          </h6>{" "}
         </div>
         <hr></hr>
         <br></br>
 
-        <img src={shoppingBag} alt="" width="100" height="100"></img>
-        <h6>Enter your balance below </h6>
-        <input type="text" id={"testar"} text={atunesModel.bankAccount} />
+        <i className="large material-icons" style={{ color: "white" }}>
+          add_shopping_cart
+        </i>
+        <h6 className="fontColorPlaylist">Current balance: </h6>
+        <h6 className="fontColorPlaylist"> {atunesModel.bankAccount}</h6>
         <button onClick={() => pay()} disabled={atunesModel.disabled}>
           <img src={payNow} alt=""></img>
         </button>
@@ -279,14 +292,15 @@ function myPlaylists(){
     );
   }
   return (
-    <div className="backgroundfärg">
-      <button className="buttonAdd" onClick={() => nyLista()}>
-        <span>Reset playlist</span>
+    <div className="black">
+      <hr className="hrBlack"></hr>
+      <button className="btn-large red darken-2 waves-effect waves-red" onClick={() => nyLista()}>
+        <span>Reset playlist</span> <i class="material-icons right">remove_circle_outline</i>
       </button>
-
-      <br></br>
-      <br></br>
+      <hr className="hrBlack"></hr>
+      <hr className="hrGrey"></hr>
       {tabell}
+      <br></br>
       {cirkel}
 
       <div>

@@ -9,11 +9,11 @@ class atunesModel {
     convertedTime = 0,
     totalPlaytime = 0,
     totalOfSongs = 0,
-    currentSongUrl = null,
-    bankAccount = null,
-    skillnad = null,
-    dif = null,
-    disabled = null
+    currentSongUrl,
+    bankAccount = 10,
+    skillnad,
+    dif,
+    disabled
   ) {
     this.songs = songs;
     this.totalPlaytime = totalPlaytime;
@@ -45,8 +45,8 @@ class atunesModel {
       .ref("users/" + user)
       .set({
         playlist: this.playlist,
-        manyPlaylists: this.manyPlaylists,
-        bankAccount: this.bankAccount,
+        boughtPlaylists: this.manyPlaylists,
+        bankAccount: this.bankAccount
       });
   }
 
@@ -65,7 +65,7 @@ class atunesModel {
     this.manyPlaylists.push(playlist);
     this.playlist = [];
     this.writeUserData(user.uid);
-    prompt("You bought a playlist!");
+    alert("You bought a playlist!");
   }
 
   removeSong(song) {
@@ -222,6 +222,39 @@ class atunesModel {
     this.convertedTime = this.timeConverter(this.totalPlaytime);
 
     //console.log(this.convertedTime)
+  }
+
+  sortPlayLists(element, index, updateras){
+
+
+    let sortera = element.map(songName => songName.trackName)
+    let sort 
+    if(updateras % 2 == 0){
+     sort = sortera.sort()
+
+    }
+
+    else{
+     sort = sortera.reverse()
+
+    }
+
+    console.log(sort)
+
+   console.log("INDEX")
+   console.log(index)
+
+   console.log(this.manyPlaylists[index][0].trackName)
+
+     for(let i = 0; i < sort.length; i++){
+
+        console.log(sort[i])
+        this.manyPlaylists[index][i].trackName = sort[i]
+     }
+
+     console.log("KLART")
+     console.log(this.manyPlaylists[index][0].trackName)
+
   }
 
   timeConverter(time) {

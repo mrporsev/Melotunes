@@ -30,9 +30,9 @@ const SongSearcher = ({
   const [updatera, updatera1] = useState(4);
 
   return (
-    <div>
+    <div className="black">
       <input
-        className="input"
+        className="input white"
         placeholder="Song or Artist"
         onChange={(event) => (query = event.target.value)}
       ></input>

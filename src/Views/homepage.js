@@ -1,4 +1,5 @@
 import React from "react";
+import fire from "../services/firebase";
 
 const Homepage = (props) => {
   // React.useEffect(() => {
@@ -25,11 +26,11 @@ const Homepage = (props) => {
     emailError,
     passwordError,
   } = props;
-
+      
   return (
     <center>
       <div className="loginformbox">
-        <h2>Login</h2>
+        <h2 className="animate__animated animate__zoomIn">Login</h2>
         <input
           className="input"
           placeholder="Email"
@@ -52,7 +53,7 @@ const Homepage = (props) => {
           {" "}
           Login
         </button>
-        <p> or </p>
+        <b> or </b>
         <button
           className="deep-yellow lighten-1 waves-effect waves-yellow btn-small"
           onClick={handleSignup}
