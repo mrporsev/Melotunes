@@ -55,8 +55,8 @@ function getUserBankAccount() {
 }
 
 function Playlisten({ atunesModel }) {
-  const [playlist, setPlaylist] = React.useState([]);
-  const [bankAccount, setBankaccount] = React.useState([]);
+  const [, setPlaylist] = React.useState([]);
+  const [, setBankaccount] = React.useState([]);
   React.useEffect(async () => {
     async function fetchData() {
       atunesModel.playlist = await getUserData();
@@ -77,32 +77,35 @@ function Playlisten({ atunesModel }) {
   }
 
   function pay() {
-    
-   let finns = true
-    for( let i = 0; i < atunesModel.playlist.length-1; i++){    //   6 
-      for(let j = i + 1; j < atunesModel.playlist.length; j++)   //
-      if(atunesModel.playlist[i].trackId === atunesModel.playlist[j].trackId){
-        finns = false
-        let namn =atunesModel.playlist[i].trackName
-        alert("Remove duplicate of song " + "'" + namn + "'");
-        break;
-      }
+    let finns = true;
+    for (let i = 0; i < atunesModel.playlist.length - 1; i++) {
+      //   6
+      for (
+        let j = i + 1;
+        j < atunesModel.playlist.length;
+        j++ //
+      )
+        if (
+          atunesModel.playlist[i].trackId === atunesModel.playlist[j].trackId
+        ) {
+          finns = false;
+          let namn = atunesModel.playlist[i].trackName;
+          alert("Remove duplicate of song " + "'" + namn + "'");
+          break;
+        }
       break;
-    } 
+    }
 
-    
-   if(finns === true){
+    if (finns === true) {
+      atunesModel.totalcostsPlaylist(atunesModel.bankAccount);
 
-    atunesModel.totalcostsPlaylist(atunesModel.bankAccount);
+      atunesModel.disablefnc(sum);
 
-    atunesModel.disablefnc(sum);
-
-   atunesModel.buyPlaylist(atunesModel.playlist);
-    updateWebsite();
-   }
+      atunesModel.buyPlaylist(atunesModel.playlist);
+      updateWebsite();
+    }
   }
 
-  
   //FIXA (tänk på parse innan du checkar om det är en number då prompt tar in strings)
   function addMoreMoney() {
     let val = prompt("enter värde");
@@ -123,7 +126,7 @@ function Playlisten({ atunesModel }) {
   let rest;
 
   if (atunesModel.bankAccount === null) {
-    console.log("TESTRARR");
+    //console.log("TESTRARR");
     atunesModel.bankAccount = 10;
     updateWebsite();
   }
@@ -215,7 +218,7 @@ function myPlaylists(){
             src={element.previewUrl}
             width="145"
             height="100"
-            autoplay="false"
+            autoPlay={false}
             autostart="false"
           ></embed>
         </td>
@@ -309,11 +312,14 @@ function myPlaylists(){
     );
   }
   return (
-<div className="black">
-      {console.log(atunesModel.playlist)}
+    <div className="black">
       <hr className="hrBlack"></hr>
-      <button className="btn-large red darken-2 waves-effect waves-red" onClick={() => nyLista()}>
-        <span>Delete basket</span> <i class="material-icons right">remove_circle_outline</i>
+      <button
+        className="btn-large red darken-2 waves-effect waves-red"
+        onClick={() => nyLista()}
+      >
+        <span>Delete basket</span>{" "}
+        <i className="material-icons right">remove_circle_outline</i>
       </button>
       <hr className="hrBlack"></hr>
       <hr className="hrGrey"></hr>

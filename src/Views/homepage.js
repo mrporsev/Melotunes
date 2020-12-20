@@ -26,7 +26,7 @@ const Homepage = (props) => {
     emailError,
     passwordError,
   } = props;
-      
+
   return (
     <center>
       <div id="container">

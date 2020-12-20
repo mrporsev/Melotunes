@@ -39,7 +39,7 @@ class atunesModel {
       */
 
   writeUserData(user) {
-    console.log(user);
+    //console.log(user);
     fire
       .database()
       .ref("users/" + user)
@@ -185,12 +185,12 @@ class atunesModel {
   addSongToPlaylist(song) {
     let user = fire.auth().currentUser;
 
-    console.log(this.playlist)
-    
+    //console.log(this.playlist)
+
     if (!this.playlist.includes(song)) {
       this.playlist.push(song);
-      console.log("den här");
-      console.log(user.uid);
+      //console.log("den här");
+      //console.log(user.uid);
       this.writeUserData(user.uid);
       this.calculateTotalPlaytime(song);
     } else {
@@ -235,20 +235,20 @@ class atunesModel {
       sort = sortera.reverse();
     }
 
-    console.log(sort);
+    //console.log(sort);
 
-    console.log("INDEX");
-    console.log(index);
+    //console.log("INDEX");
+    //console.log(index);
 
     console.log(this.manyPlaylists[index][0].trackName);
 
     for (let i = 0; i < sort.length; i++) {
-      console.log(sort[i]);
+      //console.log(sort[i]);
       this.manyPlaylists[index][i].trackName = sort[i];
     }
 
-    console.log("KLART");
-    console.log(this.manyPlaylists[index][0].trackName);
+    //console.log("KLART");
+    //console.log(this.manyPlaylists[index][0].trackName);
   }
 
   timeConverter(time) {

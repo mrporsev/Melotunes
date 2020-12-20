@@ -51,8 +51,8 @@ const SongSearcher = ({
         {t}
       </span>
 
-      {theSongs.results.map((song) => ( <span key = {song.trackId}
-         className="pics">
+      {theSongs.results.map((song) => (
+        <span key={song.trackId} className="pics">
           <div className="card medium">
             <div className="card-image waves-effect waves-block waves-light">
               <img className="activator" alt="" src={song.artworkUrl100} />
@@ -112,7 +112,7 @@ const SongSearcher = ({
           </div>
         </span>
       ))}
-      
+
       {x}
     </div>
   );
