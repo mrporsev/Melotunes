@@ -46,6 +46,8 @@ function App() {
           case "autth/wrong-password":
             setPasswordError(err.message);
             break;
+          default:
+            //do nothing
         }
       });
   };
@@ -64,6 +66,8 @@ function App() {
           case "auth/weak-password":
             setPasswordError(err.message);
             break;
+          default:
+          //do nothing
         }
       });
   };
