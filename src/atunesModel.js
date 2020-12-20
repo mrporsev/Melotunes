@@ -46,7 +46,7 @@ class atunesModel {
       .set({
         playlist: this.playlist,
         boughtPlaylists: this.manyPlaylists,
-        bankAccount: this.bankAccount
+        bankAccount: this.bankAccount,
       });
   }
 
@@ -185,6 +185,8 @@ class atunesModel {
   addSongToPlaylist(song) {
     let user = fire.auth().currentUser;
 
+    console.log(this.playlist)
+    
     if (!this.playlist.includes(song)) {
       this.playlist.push(song);
       console.log("den här");
@@ -224,37 +226,29 @@ class atunesModel {
     //console.log(this.convertedTime)
   }
 
-  sortPlayLists(element, index, updateras){
-
-
-    let sortera = element.map(songName => songName.trackName)
-    let sort 
-    if(updateras % 2 == 0){
-     sort = sortera.sort()
-
+  sortPlayLists(element, index, updateras) {
+    let sortera = element.map((songName) => songName.trackName);
+    let sort;
+    if (updateras % 2 == 0) {
+      sort = sortera.sort();
+    } else {
+      sort = sortera.reverse();
     }
 
-    else{
-     sort = sortera.reverse()
+    console.log(sort);
 
+    console.log("INDEX");
+    console.log(index);
+
+    console.log(this.manyPlaylists[index][0].trackName);
+
+    for (let i = 0; i < sort.length; i++) {
+      console.log(sort[i]);
+      this.manyPlaylists[index][i].trackName = sort[i];
     }
 
-    console.log(sort)
-
-   console.log("INDEX")
-   console.log(index)
-
-   console.log(this.manyPlaylists[index][0].trackName)
-
-     for(let i = 0; i < sort.length; i++){
-
-        console.log(sort[i])
-        this.manyPlaylists[index][i].trackName = sort[i]
-     }
-
-     console.log("KLART")
-     console.log(this.manyPlaylists[index][0].trackName)
-
+    console.log("KLART");
+    console.log(this.manyPlaylists[index][0].trackName);
   }
 
   timeConverter(time) {

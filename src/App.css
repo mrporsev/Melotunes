@@ -7,6 +7,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
+  background-color: #d9d9d9;
+  background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
 }
 
 a {
@@ -23,12 +25,16 @@ a {
 }
 
 .loginformbox {
-  width: 520px;
-  padding: 10px;
-  border: 5px solid rgb(226, 226, 226);
-  margin: 100px;
-  align-content: right;
-  vertical-align: top;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
 }
 
 .errorMsg {
@@ -42,7 +48,7 @@ a {
 }
 
 /*Playlist nibbes css*/
-pics {
+.pics {
   align-content: right;
   display: inline-block;
   vertical-align: top;
@@ -51,13 +57,12 @@ pics {
 }
 
 .boxsquare {
-  border-radius: 30px;
-  padding: 30px;
-  margin: 20px;
-  background: linear-gradient(to bottom, #308ec5 5%, #ffaff2 100%);
-  -webkit-box-shadow: 0px 10px 13px -7px #000000,
-    5px 5px 13px 9px rgba(0, 0, 0, 0.72);
-  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 13px 9px rgba(0, 0, 0, 0.72);
+  background: #4b99d8c0;
+border-radius: 20px;
+width: 400px;
+border: 1px solid #c1c1c1;
+overflow:auto;
+margin:5px auto;
 }
 
 .myButton {
@@ -342,3 +347,42 @@ text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15);
 color: #55B7B3;
 background: #FFFFFF;
   }
+
+  #container {
+    background: rgba(3, 45, 55, 0.5);
+    width: 28rem;
+    height: 17rem;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+header {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3rem;
+  height: 3rem;
+  background: rgba(3, 40, 55, 0.7);
+  font-size: 1.4rem;
+  color: #d3d3d3;
+}
+
+input {
+  background: transparent;
+  border: 0;
+  border-left: 4px solid;
+  border-color: #FF0000;
+  padding: 10px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: 0;
+    background: rgba(30, 170, 235, 0.3);
+    border-radius: 1.2rem;
+    border-color: transparent;
+}

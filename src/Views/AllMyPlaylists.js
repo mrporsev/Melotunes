@@ -45,25 +45,25 @@ const [updateras,updatera2] = useState(4)
 
 
 let allNames =  atunesModel.manyPlaylists.map((element, index)  => 
-{return <div className = "boxsquare"> <h4>Playlist: {index+1}</h4>{element.map((list, index) => 
-<div> <h6>{index+1}</h6>
-<div className = "boxsquaresmall"> {list.trackName}
+{return <div className = "boxsquare"> <h4>Playlist {index+1}</h4>{element.map((list, index) => 
+<tbody className="highlight"> <h6>{index+1}.</h6>
+<tr> 
+<td>{list.trackName}</td>
+</tr>
 
-</div>
-
-</div> )}
+</tbody> )}
 <br></br>
 <hr></hr>
 <br></br>
 
     
 
-<button  style = {{fontSize :"15px"}} className = "myButtonsort" onClick = {()=>gåNer(element, index, updateras)}>Sort playlist by name</button>
+<center><button  style = {{fontSize :"15px"}} className = "waves-effect waves-light btn" onClick = {()=>gåNer(element, index, updateras)}>Sort playlist by name</button></center>
 <br></br>
 </div>})
 
 
-let items = [ ["Nibbe", "Martin"], ["Testar", "drake", "hej"]  ];
+
 
 
 
@@ -80,7 +80,7 @@ let TEST =  items.map((element, index)  =>
 
 </div>})
 */
-   return <div className = "backgroundfärg"> 
+   return <div> 
 
       {console.log(atunesModel.manyPlaylists)}
        {allNames}

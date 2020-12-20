@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Search from "./Components/search";
-import Playlisten from "./Playlisten";
+import Playlisten from "./Views/Playlisten";
 import Show from "./show";
 import atunesModel from "./atunesModel";
 import Homepage from "./Views/homepage";
@@ -133,7 +133,7 @@ const authListener = () => {
                   <a href="#search">Search</a>
                 </li>
                 <li>
-                  <a href="#playlist">Playlist</a>
+                  <a href="#playlist">Shop</a>
                 </li>
                 <li>
                   <a href="#myPlaylists">My Playlists</a>
@@ -182,7 +182,8 @@ const authListener = () => {
               <div className="col l4 offset-l2 s12">
                 <ul>
                   <li><a className="grey-text text-lighten-3" href="#search">Search</a></li>
-                  <li><a className="grey-text text-lighten-3" href="#playlist">Customize playlist</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#playlist">Basket</a></li>
+                  <li><a className="grey-text text-lighten-3" href="#myPlaylists">My Playlists</a></li>
                   <li><a className="grey-text text-lighten-3" href="#homepage">Learn more about us</a></li>
                   <li><a className="grey-text text-lighten-3" href="#reviews">Customer reviews</a></li>
                 </ul>
@@ -199,7 +200,7 @@ const authListener = () => {
       ) : (
         <div>
           <nav>
-            <div className="nav-wrapper grey">
+            <div className="nav-wrapper grey darken-3">
               <center>
                 <a href="#homepage" className="brand-logo">
                   MeloTunes
@@ -213,7 +214,10 @@ const authListener = () => {
                   <a href="#search">Search</a>
                 </li>
                 <li className="disabled">
-                  <a href="#playlist">Playlist</a>
+                  <a href="#playlist">Shop</a>
+                </li>
+                <li className="disabled">
+                  <a href="#myPlaylists">My Playlists</a>
                 </li>
                 <li>
                 <a href="#reviews">Reviews</a>

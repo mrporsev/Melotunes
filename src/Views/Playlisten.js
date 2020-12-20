@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import "./App.css";
-import song from "./songs/backgroundsong.mp3";
-import payNow from "./Images/payNow.png";
-import arrowDown from "./Images/arrowDown.png";
-import arrowUp from "./Images/arrowUp.png";
-import shoppingBag from "./Images/shoppingBag.png";
-import addMore from "./Images/addMoreMoney.png";
-import fire from "./services/firebase";
+import "../App.css";
+import song from "../songs/backgroundsong.mp3";
+import payNow from "../Images/payNow.png";
+import arrowDown from "../Images/arrowDown.png";
+import arrowUp from "../Images/arrowUp.png";
+import addMore from "../Images/addMoreMoney.png";
+import fire from "../services/firebase";
 
 let songnamn = new Audio(song);
 
@@ -78,14 +77,32 @@ function Playlisten({ atunesModel }) {
   }
 
   function pay() {
+    
+   let finns = true
+    for( let i = 0; i < atunesModel.playlist.length-1; i++){    //   6 
+      for(let j = i + 1; j < atunesModel.playlist.length; j++)   //
+      if(atunesModel.playlist[i].trackId === atunesModel.playlist[j].trackId){
+        finns = false
+        let namn =atunesModel.playlist[i].trackName
+        alert("Remove duplicate of song " + "'" + namn + "'");
+        break;
+      }
+      break;
+    } 
+
+    
+   if(finns === true){
+
     atunesModel.totalcostsPlaylist(atunesModel.bankAccount);
 
     atunesModel.disablefnc(sum);
 
-    atunesModel.buyPlaylist(atunesModel.playlist);
+   atunesModel.buyPlaylist(atunesModel.playlist);
     updateWebsite();
+   }
   }
 
+  
   //FIXA (tänk på parse innan du checkar om det är en number då prompt tar in strings)
   function addMoreMoney() {
     let val = prompt("enter värde");
@@ -292,10 +309,11 @@ function myPlaylists(){
     );
   }
   return (
-    <div className="black">
+<div className="black">
+      {console.log(atunesModel.playlist)}
       <hr className="hrBlack"></hr>
       <button className="btn-large red darken-2 waves-effect waves-red" onClick={() => nyLista()}>
-        <span>Reset playlist</span> <i class="material-icons right">remove_circle_outline</i>
+        <span>Delete basket</span> <i class="material-icons right">remove_circle_outline</i>
       </button>
       <hr className="hrBlack"></hr>
       <hr className="hrGrey"></hr>

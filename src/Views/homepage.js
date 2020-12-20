@@ -29,11 +29,12 @@ const Homepage = (props) => {
       
   return (
     <center>
-      <div className="loginformbox">
-        <h2 className="animate__animated animate__zoomIn">Login</h2>
+      <div id="container">
+        <header className="animate__animated animate__zoomIn">Login</header>
         <input
           className="input"
           placeholder="Email"
+          type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         ></input>

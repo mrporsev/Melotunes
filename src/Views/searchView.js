@@ -31,6 +31,7 @@ const SongSearcher = ({
 
   return (
     <div className="black">
+      <br></br>
       <input
         className="input white"
         placeholder="Song or Artist"
@@ -95,7 +96,7 @@ const SongSearcher = ({
                 style={{ fontSize: "10px" }}
                 onClick={() => addAsong(song)}
               >
-                Add to playlist
+                Add to basket
               </button>
 
               <embed
@@ -111,6 +112,7 @@ const SongSearcher = ({
           </div>
         </span>
       ))}
+      
       {x}
     </div>
   );

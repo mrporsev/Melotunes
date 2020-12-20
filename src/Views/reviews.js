@@ -16,7 +16,7 @@ function Reviews (){
     <div className="property-description">
       <h5> Joe </h5>
       <i className="medium material-icons">account_circle</i>
-      <p>"Melotunes is a great app for people wanting to find all kinds of music. It's very convenient. I've used it for a week now."</p>
+      <p>"Melotunes is a great app for people wanting to find all kinds of music. It's very convenient. I hope they can make a page that shows all playlists that you have bought."</p>
       <i className="small material-icons">star</i>
       <i className="small material-icons">star</i>
       <i className="small material-icons">star</i>
@@ -53,7 +53,7 @@ function Reviews (){
     <div className="property-description">
       <h5> Mark </h5>
       <i className="medium material-icons">account_circle</i>
-      <p>"Great app would definatly recommend it. Hope they develop a 2.0 Version soon."</p>
+      <p>"Great app would definetily recommend it. Hope they develop a 2.0 Version soon with more responsive and informative messages/popups."</p>
       <i className="small material-icons">star</i>
       <i className="small material-icons">star</i>
       <i className="small material-icons">star</i>
